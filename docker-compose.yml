@@ -98,7 +98,7 @@ networks:
 services:
   # guacd
   guacd:
-    container_name: guacd_compose
+    container_name: guacd
     image: guacamole/guacd:latest
     networks:
       - guacnetwork_compose
@@ -108,7 +108,7 @@ services:
     - ./record:/record:rw
   # postgres
   postgres:
-    container_name: postgres_guacamole_compose
+    container_name: postgres_guacamole
     environment:
       PGDATA: /var/lib/postgresql/data/guacamole
       POSTGRES_DB: guacamole_db
@@ -124,7 +124,7 @@ services:
 
   # guacamole
   guacamole:
-    container_name: guacamole_compose
+    container_name: guacamole
     depends_on:
     - guacd
     - postgres
@@ -149,7 +149,7 @@ services:
 ########### optional ##############
   # nginx
   nginx:
-   container_name: nginx_guacamole_compose
+   container_name: nginx_guacamole
    restart: always
    image: nginx:latest
    volumes:
