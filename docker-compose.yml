@@ -151,8 +151,6 @@ services:
   nginx:
    container_name: nginx_guacamole
    depends_on:
-    - guacd
-    - postgres
     - guacamole
    restart: always
    image: nginx:latest
